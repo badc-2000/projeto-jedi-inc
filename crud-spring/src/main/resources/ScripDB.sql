@@ -11,9 +11,9 @@ USE db;
 CREATE TABLE projetos(
     id int AUTO_INCREMENT,
     name varchar(50) NOT NULL,
-    startDate DATE,
-    endDate DATE,
-    projectValue int NOT NULL,
-    risk int NOT NULL,
+    startDate DATE NOT NULL DEFAULT CURRENT_DATE,
+    endDate DATE NOT NULL DEFAULT CURRENT_DATE,
+    projectValue int(20) NOT NULL DEFAULT 0,
+    risk int(1) NOT NULL DEFAULT 0,
     PRIMARY KEY (id)
 );
