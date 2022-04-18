@@ -12,3 +12,11 @@ A versão do Java mais recente é recomendada para rodar a aplicação.
 Pelo terminal é possivel utilizar o comando 'mvn spring-boot:run' para executar a aplicação do BackEnd.
 
 Pelo terminal, na pasta raiz do crud angular o comando 'npm run start' compila e inicia a aplicação que é então acessivel pela url 'localhost:4200'
+
+a url 'localhost:4200/projetos' mostra todos as entidades adicionas no banco.
+só é possivel adicionar e deletar entidades por meio de requisições post e delete diretamente na aplicação de backend.
+postman é uma possivel solução ao se usar a url 'localhost:8080' para verificar o funcionamento da aplicação backend utilizando requisições http.
+não é possivel acessar a pagina de criação pelo frontend.
+não é possive simular investimentos.
+as informações de data são em formato yyyy-MM-dd.
+não é possivel adicionar participantes na entidade do banco.
