@@ -1,0 +1,45 @@
+<mat-card>
+
+  <p>
+    <mat-toolbar>
+      <span>Projetos em Andamento</span>
+    </mat-toolbar>
+  </p>
+
+  <table mat-table [dataSource]="projetos" class="mat-elevation-z8">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let projetos"> {{projetos.name}} </td>
+    </ng-container>
+
+    <!-- startDate Column -->
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef> Inicio em</th>
+      <td mat-cell *matCellDef="let projetos"> {{projetos.startDate}} </td>
+    </ng-container>
+
+    <!-- endDate Column -->
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef> Final em</th>
+      <td mat-cell *matCellDef="let projetos"> {{projetos.endDate}} </td>
+    </ng-container>
+
+    <!-- projectValue Column -->
+    <ng-container matColumnDef="projectValue">
+      <th mat-header-cell *matHeaderCellDef> Valor</th>
+      <td mat-cell *matCellDef="let projetos"> {{projetos.projectValue}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="risk">
+      <th mat-header-cell *matHeaderCellDef> Risco</th>
+      <td mat-cell *matCellDef="let projetos"> {{projetos.risk}} 
+        <mat-icon aria-hidden="false" aria-label="Risco do projeto">{{ projetos.risk | risk }}</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
