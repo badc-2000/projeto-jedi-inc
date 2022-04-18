@@ -1,0 +1,49 @@
+<div class="card">
+    <h4 class="card-header">Register</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Nome do Projeto</label>
+                <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                    <div *ngIf="f['name'].errors['required']">Nome Obrigatorio</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="fill" class="example-form-field">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="datepicker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #datepicker>
+                      <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                      </mat-datepicker-actions>
+                    </mat-datepicker>
+                  </mat-form-field>
+            </div>
+            <div class="form-group">
+                <label for="projectValue">Valor do Projeto</label>
+                <input type="int" formControlName="projectValue" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['projectValue'].errors }" />
+                <div *ngIf="submitted && f['projectValue'].errors" class="invalid-feedback">
+                    <div *ngIf="f['projectValue'].errors['required']">Valor Obrigatorio</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="risk">Risco do Projeto</label>
+                <input type="int" formControlName="risk" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['risk'].errors }" />
+                <div *ngIf="submitted && f['risk'].errors" class="invalid-feedback">
+                    <div *ngIf="f['risk'].errors['required']">Risco de Negocio Obrigatorio</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Cadastrar
+                </button>
+                <a routerLink="../list" class="btn btn-link">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -9,15 +9,23 @@ import { first } from 'rxjs/operators';
 })
 export class ProjetosService {
 
-  private readonly API = '';
+  private readonly API = 'api/projetos';
 
   constructor(private httpClient: HttpClient) { }
 
-  list() {
-    return this.httpClient.get<Projeto[]>(this.API)
+  listAllProjetos() {
+    return this.httpClient.get<Projeto[]>(this.API + "/list")
     .pipe(
       first()
     );
+  }
+
+  addProjeto(project: Projeto) {
+    return this.httpClient.post<Projeto>(this.API + "/add", project);
+  }
+
+  deleteProjetoById(id: string) {
+    return this.httpClient.delete(this.API + "/{id}")
   }
 
 }

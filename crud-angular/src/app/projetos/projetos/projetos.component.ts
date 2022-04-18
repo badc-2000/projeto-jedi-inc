@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
-import { Projeto } from '../model/projeto';
-import { ProjetosService } from '../services/projetos.service';
+import { Projeto } from '../../model/projeto';
+import { ProjetosService } from '../../services/projetos.service';
 
 @Component({
   selector: 'app-projetos',
@@ -19,7 +19,7 @@ export class ProjetosComponent implements OnInit {
     private projetosService: ProjetosService,
     public dialog: MatDialog
     ) {
-    this.projetos = this.projetosService.list()
+    this.projetos = this.projetosService.listAllProjetos()
     .pipe(
       catchError(error => {
         this.onError('Error ao carregar os projetos');
